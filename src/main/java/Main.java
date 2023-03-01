@@ -29,6 +29,7 @@ public class Main {
                     System.out.println("it was supposed to wait like 3 seconds");
                 }
                 System.out.println("No really, pat yourself on the back");
+                System.out.println("Number of guesses: " + (i + 1));
                 break;
             }
             else if(userGuess > answer){
