@@ -16,10 +16,17 @@ public class Main {
         Random rand = new Random();
         int answer = rand.nextInt(maxNum+1);
         int userGuess = -1;
+        int lastGuess;
 
 	    for(int i = 0; i < guesses; i++){
             System.out.println("What do you think the number is?:");
+            lastGuess = userGuess;
             userGuess = userIn.nextInt();
+            if(userGuess == lastGuess){
+                System.out.println("Live a little, try different guesses");
+                i--;
+                continue;
+            }
             if(userGuess == answer){
                 System.out.println("CORRECT! You win the game, pat yourself on the back");
                 try {
@@ -30,7 +37,7 @@ public class Main {
                 }
                 System.out.println("No really, pat yourself on the back");
                 System.out.println("Number of guesses: " + (i + 1));
-                break;
+                return;
             }
             else if(userGuess > answer){
                 System.out.println("No, the number is lower than that");
@@ -39,8 +46,8 @@ public class Main {
                 System.out.println("No, the number is higher than that");
             }
         }
-        if(guesses<=0) {
-            System.out.println("You ran out of guesses, better luck next time! It was:" + answer);
-        }
+
+        System.out.println("You ran out of guesses, better luck next time! It was:" + answer);
+
     }
 }
